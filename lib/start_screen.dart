@@ -26,8 +26,9 @@ class StartScreen extends StatelessWidget {
           ),
           SizedBox(height: 30),
           OutlinedButton.icon(
-            onPressed: () {startQuiz(); 
-            print("hal0");},
+            onPressed: () {
+              startQuiz(); 
+            },
             style: OutlinedButton.styleFrom(foregroundColor: Colors.white), 
             label: Text('Start Quiz'), //tadinya child, tapi kalo pake OutlinedButton.icon jadinya label
             icon: Icon(Icons.arrow_right_alt),
