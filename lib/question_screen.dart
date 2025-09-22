@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:adv_basic/data/question.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//ini widget class
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({super.key});
+  const QuestionScreen({super.key, required this.onSelectedAnswer});
+
+  final void Function(String answer) onSelectedAnswer;
 
   @override
   State<QuestionScreen> createState() {
@@ -12,10 +15,13 @@ class QuestionScreen extends StatefulWidget {
   }
 }
 
+//ini state class
 class _QuestionScreenState extends State<QuestionScreen> {
   var currentQuestionIndex = 0;
 
-  void answerQuestion() {
+  void answerQuestion(String selectedAnswer) {
+    //cara akses properti yang ada di dalam widget class
+    widget.onSelectedAnswer(selectedAnswer);
     setState(() {
       //setState() untuk ngasih tau ada perubahan data, karena kalo bagian buil() hanya dipanggil 1x
       currentQuestionIndex++;
@@ -51,7 +57,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
               //map itu iterable
               return AnswerButton(
                 answerText: answerItem,
-                onTap: answerQuestion,
+                onTap: () {
+                  answerQuestion(answerItem); //ini namanya anonymous answer
+                },
               );
             }),
           ],
