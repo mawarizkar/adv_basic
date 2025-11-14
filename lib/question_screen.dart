@@ -23,7 +23,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
     //cara akses properti yang ada di dalam widget class
     widget.onSelectedAnswer(selectedAnswer);
     setState(() {
-      //setState() untuk ngasih tau ada perubahan data, karena kalo bagian buil() hanya dipanggil 1x
+      //setState() untuk ngasih tau ada perubahan data, karena kalo bagian build() hanya dipanggil 1x
       currentQuestionIndex++;
     });
   }
